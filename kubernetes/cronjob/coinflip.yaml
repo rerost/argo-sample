@@ -17,7 +17,7 @@ spec:
             - name: init-workflow
               image: rerost/argo-sample:latest
               command: ["sh", "-c"]
-              args: ["cp /app/kubernetes/workflow.yml /mnt/work/workflow.yml"]
+              args: ["cp /app/kubernetes/coinflip.yaml /mnt/work/coinflip.yaml"]
               volumeMounts:
                 - name: workdir
                   mountPath: /mnt/work
