@@ -1,3 +1,4 @@
 FROM golang
-RUN mkdir app
-COPY . app
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
