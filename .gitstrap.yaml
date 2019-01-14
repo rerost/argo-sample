@@ -5,7 +5,7 @@ gitstrap:
             # github repository name
             name: argo-sample
             # github repository description
-            description: "Command line tool to bootstrap Github repository"
+            description: "For check argo"
             # (optional, default false) true if private
             private: false
     templates_dir: "${GOPATH}/src/github.com/rerost/gitstrap-template-go"
