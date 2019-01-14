@@ -1,0 +1,12 @@
+gitstrap:
+    version: v1
+    github:
+        repo:
+            # github repository name
+            name: gitstrap-test
+            # github repository description
+            description: "Command line tool to bootstrap Github repository"
+            # (optional, default false) true if private
+            private: false
+    templates_dir: "${GOPATH}/src/github.com/rerost/gitstrap-template-go"
+

@@ -1,0 +1,34 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: argo-cronjob-sample
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+            - name: workdir
+              emptyDir: {}
+          initContainers:
+            - name: init-workflow
+              image: task-python:1.0
+              command: ["sh", "-c"]
+              args: ["cp /workflow.yml /mnt/work/workflow.yml"]
+              volumeMounts:
+                - name: workdir
+                  mountPath: /mnt/work
+              securityContext:
+                runAsUser: 0
+          containers:
+            - name: exec-workflow
+              image: argo-cli:1.0
+              command: ["sh", "-c"]
+              args: ["argo submit /mnt/work/workflow.yml"]
+              volumeMounts:
+                - name: workdir
+                  mountPath: /mnt/work
+
