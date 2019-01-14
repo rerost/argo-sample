@@ -3,7 +3,7 @@ gitstrap:
     github:
         repo:
             # github repository name
-            name: gitstrap-test
+            name: argo-sample
             # github repository description
             description: "Command line tool to bootstrap Github repository"
             # (optional, default false) true if private
