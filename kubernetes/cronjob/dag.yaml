@@ -10,15 +10,8 @@ spec:
       template:
         spec:
           restartPolicy: Never
-          volumes:
-            - name: kube
-              secret:
-                secretName: kube
           containers:
             - name: exec-workflow
               image: rerost/argo-sample:latest
               command: ["sh", "-c"]
               args: ["argo submit /app/kubernetes/workflow/dag.yaml"]
-              volumeMounts:
-                - name: kube
-                  mountPath: /root
