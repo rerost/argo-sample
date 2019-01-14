@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: coinflip
+  name: dag
 spec:
   schedule: "0 * * * *"
   jobTemplate:
@@ -18,7 +18,7 @@ spec:
             - name: exec-workflow
               image: rerost/argo-sample:latest
               command: ["sh", "-c"]
-              args: ["argo submit /app/kubernetes/workflow/coinflip.yaml"]
+              args: ["argo submit /app/kubernetes/workflow/dag.yaml"]
               volumeMounts:
                 - name: kube
                   mountPath: /root
